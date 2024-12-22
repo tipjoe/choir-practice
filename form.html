@@ -1,0 +1,39 @@
+<!--
+ <script>
+  window.addEventListener("load", function() {
+    const form = document.getElementById('register-form');
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = e.target.action;
+      fetch(action, {
+             method: 'POST',
+              body: data,
+             })
+      .then(() => {
+             alert("Success!");
+    })
+  });
+  });
+  //  Web app url: https://script.google.com/macros/s/AKfycbyukRVCz7UzdnRId17OthiDUpQ9FycikwuYUC4SlGWBxDUqYnl-B5HJF11vaZYN_LbAPw/exec
+  document.getElementsByTagName("iframe")[0].load(function(el) {
+    console.log('Iframe loaded: ', el);
+  });
+</script>
+
+  <div>
+    <form action="https://script.google.com/macros/s/AKfycbyukRVCz7UzdnRId17OthiDUpQ9FycikwuYUC4SlGWBxDUqYnl-B5HJF11vaZYN_LbAPw/exec" id="register-form" method="POST">
+      <input name="Email" placeholder="Email" required="" type="email" />
+      <input name="Name" placeholder="Name" required="" type="text" />
+      <input name="Date" placeholder="Date" type="date" />
+      <button type="submit">
+        Send
+      </button>
+    </form>
+  </div>
+  <div>
+    <iframe frameborder="0" height="800" id="if1" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSfWGumskuvHbkQ3mvSU8hUwo_OYvG7LXcjuKB5DDX6kbx-I0w/viewform?embedded=true" width="640">
+      Loading…
+    </iframe>
+  </div>
+</div> -->
