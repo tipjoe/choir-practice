@@ -3,7 +3,6 @@ body {
   max-width: 600px;
   margin: 0 auto;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
 }
 
 table,
@@ -20,7 +19,7 @@ th {
 
 td {
   /* Needed for flex to work within table cell. */
-  height: 130px;
+  height: 150px;
 }
 
 img.thumb {
@@ -49,8 +48,8 @@ a {
 /* increment button and count label size */
 .inc-button {
   font-size: 1.4em;
-  width: 30px;
-  height: 30px;
+  /* width: 30px; */
+  height: 40px;
   margin-right: 12px;
 }
 .got-it-button {
@@ -114,8 +113,14 @@ a {
 /* Lists */
 ul {
   padding: 0 16px;
-  line-height: 1.2rem;
+  line-height: 1.4rem;
 }
 ul.bigger {
   line-height: 1.6rem;
+}
+
+#how-details {
+  display: none;
+  padding: 12px 24px;
+  background-color: rgb(190, 225, 239);
 }

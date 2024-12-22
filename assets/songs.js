@@ -109,7 +109,6 @@ document.addEventListener("alpine:init", async (e) => {
     // Get listen count for a song.
     getListenCountById(id) {
       const song = this.songs.find((song) => song.id === id);
-      console.log("SONG", song);
       return song.count;
     },
 
@@ -195,4 +194,13 @@ function daysFromNow(date) {
 
   // Convert back to days and return
   return days;
+}
+
+function toggleHowDetails() {
+  let el = document.getElementById("how-details");
+  if (el.style.display !== "block") {
+    el.style.display = "block";
+  } else {
+    el.style.display = "none";
+  }
 }

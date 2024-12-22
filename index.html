@@ -19,26 +19,37 @@
       <li>Click a song to listen</li>
       <li>Use <button>+</button> to count listens</li>
       <li>Use <button>Got It!</button> when you <i>think you know it</i></li>
-      <li>Then <button>Give It!</button> to start to <i>really know it</i></li>
-      <li>
-        The song will tell you how!
-        <ul>
-          <li>Do something nice</li>
-          <li>Listen to someone</li>
-          <li>Learn something</li>
-          <li>Share something</li>
-          <li>Whatever good thing the song inspires</li>
-        </ul>
-      </li>
     </ul>
-    <p>
-      We don't really <button>Got It!</button> until we
-      <button>Give It!</button>, which is <button>Good!</button>.
-    </p>
-    <div style="margin-top: 24px">
+    <a href="javascript: toggleHowDetails();">Huh? <i>Think</i> I know it? ▸</a>
+    <div id="how-details">
+      <p>
+        After you click <button>Got It!</button>, consider pausing to determine
+        how you can <button>Give It!</button>. If you stop and listen, the song
+        or God or your imagination... whatever you want to call it... will show
+        you how. Maybe you'll be inspired to:
+      </p>
+      <ul>
+        <li>Do something nice</li>
+        <li>Listen to someone</li>
+        <li>Learn something</li>
+        <li>Share something</li>
+        <li><i>Whatever you experience</i></li>
+      </ul>
+      <p>
+        If you do, then you can click <button>Give It!</button> and enjoy
+        feeling the song move from Lips to Mind to Heart.
+      </p>
+      <a href="javascript: toggleHowDetails()">Proceed ▸</a>
+    </div>
+    <div style="margin-top: 36px">
       <h3>Upcoming Songs</h3>
-      See list of <a href="#past-songs">Past Songs</a> we've performed.
-      <br /><br />
+      <span
+        x-data
+        x-show="Alpine.store('choir')?.getPastSongs().length"
+        style="color: gray; font-size: 0.8em"
+      >
+        See <a href="#past-songs">Past Songs</a> we've performed. <br /><br />
+      </span>
       <table id="table-song">
         <thead>
           <th colspan="2" style="width: 65%">Listen Links</th>
