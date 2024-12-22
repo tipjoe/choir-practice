@@ -18,9 +18,9 @@
     <ul class="bigger">
       <li>Click a song to listen</li>
       <li>Use <button>+</button> to count listens</li>
-      <li>Use <button>Got It!</button> when you <i>think you know it</i></li>
+      <li>Use <button>Got It!</button> when you think you know it</li>
     </ul>
-    <a href="javascript: toggleHowDetails();">Huh? <i>Think</i> I know it? ▸</a>
+    <!-- <a href="javascript: toggleHowDetails();">Huh? <i>Think</i> I know it? ▸</a>
     <div id="how-details">
       <p>
         After you click <button>Got It!</button>, consider pausing to determine
@@ -44,7 +44,7 @@
         feeling the song move from Lips to Mind to Heart.
       </p>
       <a href="javascript: toggleHowDetails()">Proceed ▸</a>
-    </div>
+    </div> -->
     <div style="margin-top: 36px">
       <h3>Upcoming Songs</h3>
       <span
@@ -86,12 +86,10 @@
                     <button
                       class="got-it-button"
                       x-bind:id="'gotItButton' + song.id"
-                      x-bind:disabled="Alpine.store('choir').isGood(song.id)"
-                      x-on:click="Alpine.store('choir').toggleGotIt(song.id)"
+                      x-on:click="Alpine.store('choir').toggleGotIt(event)"
+                      x-text="Alpine.store('choir').gotItLabel(song.id)"
+                      :class="Alpine.store('choir').gotItClass(song.id)"
                     >
-                      <span
-                        x-text="Alpine.store('choir').gotItLabel(song.id)"
-                      ></span>
                     </button>
                   </div>
 

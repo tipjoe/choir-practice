@@ -36,7 +36,7 @@ document.addEventListener("alpine:init", async (e) => {
     });
     localStorage.setItem("songs", JSON.stringify(songs));
   } else {
-    // Since songsTmp was in localStorage, ensure we any tracking values and
+    // Since songsTmp was in localStorage, ensure retain tracking values and
     // and add tracking to any new songs.
     songs = songs.map((song, index) => {
       if (song.id === songsTmp[index].id) {
@@ -44,8 +44,8 @@ document.addEventListener("alpine:init", async (e) => {
         return {
           ...song,
           count: songsTmp[index].count,
-          getIt: songsTmp[index].getIt,
-          giveIt: songsTmp[index].giveIt,
+          gotIt: songsTmp[index].gotIt,
+          giveIt: songsTmp[index].giveIt
         };
       } else {
         return {
@@ -113,20 +113,23 @@ document.addEventListener("alpine:init", async (e) => {
     },
 
     // Mark songs you know or resume practice.
-    toggleGotIt(id) {
+    toggleGotIt(e) {
       this.songs = this.songs.map((song) => {
-        if (song.id === id) {
+        // Slice id after first 11 chars (gotItButtonX).
+        const id = e?.target?.id.slice(11);
+        if (song.id === parseInt(id)) {
           if (!song.gotIt) {
             return {
               ...song,
               gotIt: true,
             };
-          } else if (!song.giveIt) {
-            return {
-              ...song,
-              giveIt: true,
-            };
           }
+          // else if (!song.giveIt) {
+          //   return {
+          //     ...song,
+          //     giveIt: true,
+          //   };
+          // }
         }
         return song;
       });
@@ -136,37 +139,46 @@ document.addEventListener("alpine:init", async (e) => {
     },
     gotItLabel(id) {
       const song = this.songs.find((song) => song.id === id);
-      if (song.giveIt) {
-        return "Good!";
-      } else if (song.gotIt) {
-        return "Give It!";
+      // if (song.giveIt) {
+      //   return "Awesome!";
+      if (song.gotIt) {
+        return "✓";
       } else {
         return "Got It!";
+      }
+    },
+    gotItClass(id) {
+      // Change button to green on "got it"
+      const song = this.songs.find((song) => song.id === id);
+      if (song.gotIt) {
+        return "got-it-button-ok";
       }
     },
     // Provide the daysFromNow class for styling. If "gotIt" is true, override.
     daysFromNowClass(id) {
       // First see if singer has already "gotIt".
       const song = this.songs.find((song) => song.id === id);
-      if (song.giveIt) {
-        return "song-give-it";
-      } else if (song.gotIt) {
-        return "song-got-it";
+      // if (song.giveIt) {
+      //   return "song-give-it";
+      // } else if (song.gotIt) {
+      //   return "song-got-it";
+      // } else {
+      const days = daysFromNow(new Date(song.due));
+      if (days < 0) {
+        return "song-overdue";
+      } else if (days > 20) {
+        return "song-have-time";
       } else {
-        const days = daysFromNow(new Date(song.due));
-        if (days < 0) {
-          return "song-overdue";
-        } else if (days > 20) {
-          return "song-have-time";
-        } else {
-          return "song-soon";
-        }
+        return "song-soon";
       }
+      // }
     },
+    // Ignore this for now.
     isGood(id) {
       const song = this.songs.find((song) => song.id === id);
       // If this is true, we're "good".
-      return !!song.giveIt;
+      // return !!song.giveIt;
+      // return !!song.giveIt;
     },
   });
 });
