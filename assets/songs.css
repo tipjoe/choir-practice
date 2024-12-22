@@ -54,6 +54,7 @@ a {
 }
 .got-it-button {
   font-size: 1.1em;
+  height: 40px;
   padding: 4px 8px;
   margin: 4px 0;
 }
