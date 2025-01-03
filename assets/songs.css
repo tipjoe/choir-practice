@@ -99,11 +99,15 @@ a {
   color: white;
 }
 .song-have-time {
-  background-color: lightblue;
+  background-color: lightyellow;
   color: black;
 }
 .song-soon {
-  background-color: lightcoral;
+  background-color: lightpink;
+  color: black;
+}
+.song-unscheduled {
+  background-color: lightblue;
   color: black;
 }
 .song-got-it {

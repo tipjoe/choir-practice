@@ -48,6 +48,34 @@
       "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=11394814",
       "thumb": "https://www.jwpepper.com/covers/1/11394814.jpg",
       "due": "2/23/2025"
+    },
+    {
+      "id": 8,
+      "title": "Weave Us in Community",
+      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=11538052",
+      "thumb": "https://www.jwpepper.com/covers/1/11538052.jpg",
+      "due": "1/1/2099"
+    },
+    {
+      "id": 9,
+      "title": "Affirmation",
+      "url": "https://drive.google.com/file/d/13LsSa9oWZ4UK0MpVCwtPVcdzw3IfDqIz/view?usp=drive_link",
+      "thumb": "https://hymnary.org/files/hymnary/image/ZSS2007.jpg",
+      "due": "1/1/2099"
+    },
+    {
+      "id": 10,
+      "title": "More Like You",
+      "url": "https://www.youtube.com/watch?v=EKaKv5m5z2k",
+      "thumb": "https://img.youtube.com/vi/EKaKv5m5z2k/maxresdefault.jpg",
+      "due": "1/5/2025"
+    },
+    {
+      "id": 11,
+      "title": "On Jordan's Bank the Baptist's Cry",
+      "url": "https://www.youtube.com/watch?v=vHfNFeVYhtQ",
+      "thumb": "https://img.youtube.com/vi/vHfNFeVYhtQ/maxresdefault.jpg",
+      "due": "1/5/2025"
     }
   ]
 }

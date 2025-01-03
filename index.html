@@ -102,11 +102,16 @@
                 :class="Alpine.store('choir').daysFromNowClass(song.id)"
                 style="text-align: center"
               >
-                <span x-text="formatDate(new Date(song.due))"></span>
-                <br /><br />
-                <span
-                  x-text="'(in ' + daysFromNow(new Date(song.due)) +  ' days)'"
-                ></span>
+                <div>
+                  <div x-show="new Date(song.due).getTime() === new Date('1/1/2099').getTime()">
+                    Not yet scheduled
+                  </div>
+                  <div x-show="new Date(song.due).getTime() !== new Date('1/1/2099').getTime()">
+                    <span x-text="formatDate(new Date(song.due))"></span>
+                    <br /><br />
+                    <span x-text="'(in ' + daysFromNow(new Date(song.due)) +  ' days)'"></span>
+                  </div>
+                </div>
               </td>
             </tr>
           </template>
@@ -117,7 +122,7 @@
     <div
       x-data
       x-show="Alpine.store('choir')?.getPastSongs().length"
-      style="margin-top: 24px"
+      style="margin-top: 96px"
     >
       <h3 id="past-songs">
         Past Songs (<span

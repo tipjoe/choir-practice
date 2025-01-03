@@ -5,8 +5,8 @@ document.addEventListener("alpine:init", async (e) => {
     // Turn due into dates.
     const aDue = new Date(a.due);
     const bDue = new Date(b.due);
-    // If due dates are the same, sort by title.
-    if (aDue === bDue) {
+    // If due date timestamps are the same, sort by title.
+    if (aDue.getTime() === bDue.getTime()) {
       return a.title.localeCompare(b.title);
     }
     return aDue - bDue;
@@ -39,7 +39,7 @@ document.addEventListener("alpine:init", async (e) => {
     // Since songsTmp was in localStorage, ensure retain tracking values and
     // and add tracking to any new songs.
     songs = songs.map((song, index) => {
-      if (song.id === songsTmp[index].id) {
+      if (songsTmp[index] && song.id === songsTmp[index].id) {
         // Use latest from songs file, but override tracking.
         return {
           ...song,
@@ -166,6 +166,8 @@ document.addEventListener("alpine:init", async (e) => {
       const days = daysFromNow(new Date(song.due));
       if (days < 0) {
         return "song-overdue";
+      } else if (days > 999) {
+        return "song-unscheduled";
       } else if (days > 20) {
         return "song-have-time";
       } else {
@@ -196,8 +198,6 @@ function formatDate(date) {
 function daysFromNow(date) {
   const now = new Date().getTime();
   const due = date.getTime();
-  // const date1Ms = new Date(date1).getTime();
-  // const date2Ms = new Date(date2).getTime();
 
   // Calculate the difference in milliseconds
   const diff = due - now;
