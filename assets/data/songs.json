@@ -50,20 +50,6 @@
       "due": "2/23/2025"
     },
     {
-      "id": 8,
-      "title": "Weave Us in Community",
-      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=11538052",
-      "thumb": "https://www.jwpepper.com/covers/1/11538052.jpg",
-      "due": "1/1/2099"
-    },
-    {
-      "id": 9,
-      "title": "Affirmation",
-      "url": "https://drive.google.com/file/d/13LsSa9oWZ4UK0MpVCwtPVcdzw3IfDqIz/view?usp=drive_link",
-      "thumb": "https://hymnary.org/files/hymnary/image/ZSS2007.jpg",
-      "due": "1/1/2099"
-    },
-    {
       "id": 10,
       "title": "More Like You",
       "url": "https://www.youtube.com/watch?v=EKaKv5m5z2k",
@@ -76,6 +62,62 @@
       "url": "https://www.youtube.com/watch?v=vHfNFeVYhtQ",
       "thumb": "https://img.youtube.com/vi/vHfNFeVYhtQ/maxresdefault.jpg",
       "due": "1/5/2025"
+    },
+    {
+      "id": 12,
+      "title": "Lord of the Dance",
+      "url": "https://www.youtube.com/watch?v=h3T1zwjVnN8",
+      "thumb": "https://www.jwpepper.com/cdn-cgi/image/width=83%20quality=75/covers/1/1966795.jpg",
+      "due": "2/9/2025"
+    },
+    {
+      "id": 13,
+      "title": "Holy Spirit, Living Breath of God",
+      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=10553036",
+      "thumb": "https://www.jwpepper.com/covers/1/10553036.jpg",
+      "due": "2/16/2025"
+    },
+    {
+      "id": 14,
+      "title": "Order My Steps (In Your Word",
+      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=8020331",
+      "thumb": "https://www.jwpepper.com/covers/8/8020331.jpg",
+      "due": "2/2/2025"
+    },
+    {
+      "id": 8,
+      "title": "Weave Us in Community",
+      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=11538052",
+      "thumb": "https://www.jwpepper.com/covers/1/11538052.jpg",
+      "due": "1/1/2099"
+    },
+    {
+      "id": 9,
+      "title": "Affirmation",
+      "url": "https://drive.google.com/file/d/10mWiFzse9LnjxpfiQJum6BrENKrzu4FC/view?usp=drive_link",
+      "thumb": "https://hymnary.org/files/hymnary/image/ZSS2007.jpg",
+      "due": "1/1/2099"
+    },
+    {
+      "id": 15,
+      "title": "Better",
+      "url": "https://www.youtube.com/watch?v=1nrcZQliOGI",
+      "thumb": "https://img.youtube.com/vi/1nrcZQliOGI/maxresdefault.jpg",
+      "due": "1/26/2025"
+    },
+    {
+      "id": 16,
+      "title": "Living in the Imagination of God",
+      "url": "https://drive.google.com/file/d/1pyPCq8Qc6Fsoj7mnvqmtXMsBRwY9BR6p/view?usp=drive_link",
+      "thumb": "https://hymnary.org/files/hymnary/person/Tribble_CO.jpg",
+      "due": "1/1/2099"
+    },
+    {
+      "id": 17,
+      "title": "God Himself is Present (Worship - In the Presence)",
+      "url": "https://www.youtube.com/watch?v=zkQOHlsv2jo",
+      "thumb": "https://img.youtube.com/vi/zkQOHlsv2jo/maxresdefault.jpg",
+      "due": "1/1/2099"
     }
   ]
 }
