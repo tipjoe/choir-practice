@@ -79,7 +79,7 @@
     },
     {
       "id": 14,
-      "title": "Order My Steps (In Your Word",
+      "title": "Order My Steps (In Your Word)",
       "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=8020331",
       "thumb": "https://www.jwpepper.com/covers/8/8020331.jpg",
       "due": "2/2/2025"
@@ -117,6 +117,13 @@
       "title": "God Himself is Present (Worship - In the Presence)",
       "url": "https://www.youtube.com/watch?v=zkQOHlsv2jo",
       "thumb": "https://img.youtube.com/vi/zkQOHlsv2jo/maxresdefault.jpg",
+      "due": "1/1/2099"
+    },
+    {
+      "id": 18,
+      "title": "Jesus Loves Me",
+      "url": "https://www.youtube.com/watch?v=DjD_ia-rW_s",
+      "thumb": "https://img.youtube.com/vi/DjD_ia-rW_s/maxresdefault.jpg",
       "due": "1/1/2099"
     }
   ]

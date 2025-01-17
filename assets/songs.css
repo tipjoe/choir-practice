@@ -14,7 +14,7 @@ td {
 
 td,
 th {
-  padding: 12px;
+  padding: 6px;
 }
 
 td {
@@ -23,7 +23,7 @@ td {
 }
 
 img.thumb {
-  width: 80px;
+  width: 125px;
 }
 
 .center {

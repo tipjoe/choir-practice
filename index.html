@@ -14,37 +14,9 @@
   </head>
   <body>
     <h1 class="center">Choir Song Practice</h1>
-    <h3>How This Works</h3>
-    <ul class="bigger">
-      <li>Click a song to listen</li>
-      <li>Use <button>+</button> to count listens</li>
-      <li>Use <button>Got It!</button> when you think you know it</li>
-    </ul>
-    <!-- <a href="javascript: toggleHowDetails();">Huh? <i>Think</i> I know it? ▸</a>
-    <div id="how-details">
-      <p>
-        After you click <button>Got It!</button>, consider pausing to determine
-        how you can <button>Give It!</button> to know the song in a deeper way.
-      </p>
-      <p>
-        If you stop and listen, the song or God or your imagination... whatever
-        you want to call it... will show you how to give it... to someone else
-        or to yourself. Maybe you'll be inspired to:
-      </p>
-      <ul>
-        <li>Do something nice</li>
-        <li>Reflect</li>
-        <li>Listen to someone</li>
-        <li>Learn something</li>
-        <li>Share something</li>
-        <li><i>Whatever you experience</i></li>
-      </ul>
-      <p>
-        If you do, then you can click <button>Give It!</button> and enjoy
-        feeling the song move from Lips to Mind to Heart.
-      </p>
-      <a href="javascript: toggleHowDetails()">Proceed ▸</a>
-    </div> -->
+    Click to listen. Songs ordered 1) by schedule, 2) then alphabetical if
+    not yet scheduled.
+
     <div style="margin-top: 36px">
       <h3>Upcoming Songs</h3>
       <span
@@ -68,36 +40,10 @@
                 </a>
               </td>
               <td class="song-link-track">
-                <div>
-                  <div>
-                    <button
-                      class="inc-button"
-                      x-bind:id="'incButton' + song.id"
-                      x-on:click="Alpine.store('choir').incrementListenCount(event)"
-                    >
-                      +
-                    </button>
-                    <span
-                      class="count-label"
-                      x-text:="Alpine.store('choir').getListenCountById(song.id)"
-                    ></span>
-                  </div>
-                  <div>
-                    <button
-                      class="got-it-button"
-                      x-bind:id="'gotItButton' + song.id"
-                      x-on:click="Alpine.store('choir').toggleGotIt(event)"
-                      x-text="Alpine.store('choir').gotItLabel(song.id)"
-                      :class="Alpine.store('choir').gotItClass(song.id)"
-                    >
-                    </button>
-                  </div>
-
-                  <a x-bind:href="song.url" target="_blank">
-                    <span x-text="song.title"></span>
-                  </a>
-                </div>
-              </td>
+                <a x-bind:href="song.url" target="_blank">
+                  <span x-text="song.title"></span>
+                </a>
+            </td>
               <td
                 :class="Alpine.store('choir').daysFromNowClass(song.id)"
                 style="text-align: center"
@@ -109,7 +55,7 @@
                   <div x-show="new Date(song.due).getTime() !== new Date('1/1/2099').getTime()">
                     <span x-text="formatDate(new Date(song.due))"></span>
                     <br /><br />
-                    <span x-text="'(in ' + daysFromNow(new Date(song.due)) +  ' days)'"></span>
+                    <span style="font-size: .8em" x-text="'(in ' + daysFromNow(new Date(song.due)) +  ' days)'"></span>
                   </div>
                 </div>
               </td>
