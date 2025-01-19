@@ -33,7 +33,7 @@
         </thead>
         <tbody x-data>
           <template x-for="song in Alpine.store('choir')?.getSongs()">
-            <tr>
+            <tr x-bind:id="song.id" >
               <td class="song-thumb">
                 <a x-bind:href="song.url" target="_blank">
                   <img x-bind:src="song.thumb" class="thumb" />
@@ -41,7 +41,7 @@
               </td>
               <td class="song-link-track">
                 <a x-bind:href="song.url" target="_blank">
-                  <span x-text="song.title"></span>
+                  <span x-text="song.title"></span><a class="anchor-link" x-bind:href="'#' + song.id">🔗</a>
                 </a>
             </td>
               <td
