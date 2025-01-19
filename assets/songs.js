@@ -106,7 +106,8 @@ document.addEventListener("alpine:init", async (e) => {
     },
   });
 
-  // Make #songN hash URLs work. Needs a little timeout (300ms).
+  // Make #songN hash URLs work. Needs a timeout. Bumped to 750 because it
+  // seems to be longer if the page isn't already loaded/cached once.
   const myHash = location.hash.slice(1);
   if (myHash) { // songX
     setTimeout(function() {
@@ -114,7 +115,7 @@ document.addEventListener("alpine:init", async (e) => {
       if (myHashEl) {
         document.getElementById(myHash).scrollIntoView();
       }
-    }, 300);
+    }, 750);
   }
 });
 
