@@ -40,8 +40,9 @@
                 </a>
               </td>
               <td class="song-link-track">
+                <a class="anchor-link" x-bind:href="'#' + song.id">🔗</a>
                 <a x-bind:href="song.url" target="_blank">
-                  <span x-text="song.title"></span><a class="anchor-link" x-bind:href="'#' + song.id">🔗</a>
+                  <span x-text="song.title"></span>
                 </a>
             </td>
               <td
