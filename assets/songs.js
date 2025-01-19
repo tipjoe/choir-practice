@@ -12,14 +12,6 @@ document.addEventListener("alpine:init", async (e) => {
     return aDue - bDue;
   });
 
-  // Dorky Abba photos to make people laugh.
-  const abbaGifs = [
-    "https://www.bing.com/th/id/OGC.57a6b9a129c3b97a74fbda525fd11e92?pid=1.7&rurl=https%3a%2f%2fmedia0.giphy.com%2fmedia%2fXZBOjxULCOFDtLIJ3v%2fgiphy.gif&ehk=y65b2CNAmKGN6hEv4MuhUFSHIIgCejTCjk2fS4%2f7uMA%3d",
-    "https://www.bing.com/th/id/OGC.002075143d3ad8efc3db65bf2d45dc8c?pid=1.7&rurl=https%3a%2f%2fmedia.tenor.com%2fC0BoV0aQKScAAAAd%2fabba-take-a-chance-on-me.gif&ehk=YuGHX%2b0X76jL1ROu%2bxtqfP44Tt2H0uRvs8iyGrw4pQM%3d",
-    "https://www.bing.com/th/id/OGC.c670724fd17ca95cadaf9783b8b806bc?pid=1.7&rurl=https%3a%2f%2fmedia3.giphy.com%2fmedia%2f5QYfn1B41MP3N0wCGi%2fgiphy.gif%3fcid%3d790b7611c04380e9dc62540d9f0c683552088dcae6411c20%26rid%3dgiphy.gif%26ct%3dg&ehk=NvlUZE5HgiVA2etyJUa2pL4uaRVm3A7XuSqGFhJAFK4%3d",
-    "https://www.bing.com/th/id/OGC.a7ca08cebbd9ad9d477ae271019a2bd3?pid=1.7&rurl=https%3a%2f%2fmedia4.giphy.com%2fmedia%2f3mmcb0odnpVvHrjfzk%2fgiphy.gif%3fcid%3d790b7611b3ab21997988625755373822987cd63fd21be070%26rid%3dgiphy.gif%26ct%3dg&ehk=Sld77OvXtkRfS8H93ujWY73OkRmMQ%2bx90yiRzcy7s%2bs%3d",
-  ];
-
   // Initialize songsTmp from localStorage to compare with songs.
   const songsTmp = JSON.parse(localStorage.getItem("songs")) || [];
 
@@ -62,28 +54,6 @@ document.addEventListener("alpine:init", async (e) => {
   // The 'choir' store.
   Alpine.store("choir", {
     songs,
-    abbaGifs,
-    getAbbaGif() {
-      const randomIndex = Math.floor(Math.random() * this.abbaGifs.length);
-      return this.abbaGifs[randomIndex];
-    },
-    // Track new listens for a song.
-    incrementListenCount(e) {
-      // Get ID from incButtonX and ensure it's an int.
-      const id = parseInt(e.target.id.slice(9));
-      this.songs = this.songs.map((song) => {
-        if (song.id === id) {
-          return {
-            ...song,
-            count: song.count + 1,
-          };
-        }
-        return song;
-      });
-
-      // Back it up in localStorage por favorage.
-      localStorage.setItem("songs", JSON.stringify(this.songs));
-    },
 
     // Get current songs.
     getSongs() {
@@ -106,54 +76,6 @@ document.addEventListener("alpine:init", async (e) => {
       });
     },
 
-    // Get listen count for a song.
-    getListenCountById(id) {
-      const song = this.songs.find((song) => song.id === id);
-      return song.count;
-    },
-
-    // Mark songs you know or resume practice.
-    toggleGotIt(e) {
-      this.songs = this.songs.map((song) => {
-        // Slice id after first 11 chars (gotItButtonX).
-        const id = e?.target?.id.slice(11);
-        if (song.id === parseInt(id)) {
-          if (!song.gotIt) {
-            return {
-              ...song,
-              gotIt: true,
-            };
-          }
-          // else if (!song.giveIt) {
-          //   return {
-          //     ...song,
-          //     giveIt: true,
-          //   };
-          // }
-        }
-        return song;
-      });
-
-      // Back it up in localStorage por favorage.
-      localStorage.setItem("songs", JSON.stringify(this.songs));
-    },
-    gotItLabel(id) {
-      const song = this.songs.find((song) => song.id === id);
-      // if (song.giveIt) {
-      //   return "Awesome!";
-      if (song.gotIt) {
-        return "✓";
-      } else {
-        return "Got It!";
-      }
-    },
-    gotItClass(id) {
-      // Change button to green on "got it"
-      const song = this.songs.find((song) => song.id === id);
-      if (song.gotIt) {
-        return "got-it-button-ok";
-      }
-    },
     // Provide the daysFromNow class for styling. If "gotIt" is true, override.
     daysFromNowClass(id) {
       // First see if singer has already "gotIt".
@@ -183,6 +105,17 @@ document.addEventListener("alpine:init", async (e) => {
       // return !!song.giveIt;
     },
   });
+
+  // Make #songN hash URLs work. Needs a little timeout (300ms).
+  const myHash = location.hash.slice(1);
+  if (myHash) { // songX
+    setTimeout(function() {
+      const myHashEl = document.getElementById(myHash);
+      if (myHashEl) {
+        document.getElementById(myHash).scrollIntoView();
+      }
+    }, 300);
+  }
 });
 
 function formatDate(date) {
@@ -206,13 +139,4 @@ function daysFromNow(date) {
 
   // Convert back to days and return
   return days;
-}
-
-function toggleHowDetails() {
-  let el = document.getElementById("how-details");
-  if (el.style.display !== "block") {
-    el.style.display = "block";
-  } else {
-    el.style.display = "none";
-  }
 }

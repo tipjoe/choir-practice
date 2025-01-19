@@ -33,18 +33,18 @@
         </thead>
         <tbody x-data>
           <template x-for="song in Alpine.store('choir')?.getSongs()">
-            <tr x-bind:id="song.id" >
-              <td class="song-thumb">
+            <tr>
+              <td class="song-thumb" x-bind:id="'song' + song.id" >
                 <a x-bind:href="song.url" target="_blank">
                   <img x-bind:src="song.thumb" class="thumb" />
                 </a>
               </td>
               <td class="song-link-track">
-                <a class="anchor-link" x-bind:href="'#' + song.id">🔗</a>
+                <a class="anchor-link" x-bind:href="'/#song' + song.id">🔗</a>
                 <a x-bind:href="song.url" target="_blank">
                   <span x-text="song.title"></span>
                 </a>
-            </td>
+              </td>
               <td
                 :class="Alpine.store('choir').daysFromNowClass(song.id)"
                 style="text-align: center"
@@ -85,27 +85,16 @@
         <tbody x-data>
           <template x-for="song in Alpine.store('choir')?.getPastSongs()">
             <tr>
-              <td class="song-thumb">
+              <td class="song-thumb" x-bind:id="'song' + song.id" >
                 <a x-bind:href="song.url" target="_blank">
                   <img x-bind:src="song.thumb" class="thumb" />
                 </a>
               </td>
-              <td class="song-link-track2">
-                <div>
-                  <div
-                    x-show="!!Alpine.store('choir').getListenCountById('countLabel' + song.id)"
-                  >
-                    Listened
-                    <span
-                      x-text:="Alpine.store('choir').getListenCountById(song.id)"
-                    ></span>
-                    times
-                  </div>
-
-                  <a x-bind:href="song.url" target="_blank">
-                    <span x-text="song.title"></span>
-                  </a>
-                </div>
+              <td class="song-link-track song-link-track2">
+                <a class="anchor-link" x-bind:href="'/#song' + song.id">🔗</a>
+                <a x-bind:href="song.url" target="_blank">
+                  <span x-text="song.title"></span>
+                </a>
               </td>
               <td style="text-align: center">
                 <span x-text="formatDate(new Date(song.due))"></span>
