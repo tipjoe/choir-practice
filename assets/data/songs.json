@@ -110,7 +110,7 @@
       "title": "Living in the Imagination of God",
       "url": "https://drive.google.com/file/d/1pyPCq8Qc6Fsoj7mnvqmtXMsBRwY9BR6p/view?usp=drive_link",
       "thumb": "https://hymnary.org/files/hymnary/person/Tribble_CO.jpg",
-      "due": "1/1/2099"
+      "due": "1/26/2025"
     },
     {
       "id": 17,
@@ -128,10 +128,38 @@
     },
     {
       "id": 19,
-      "title": "Beautiful Savior -- (FYI: TTBB, this is the correct arrangement but solo verse words are different here so follow sheet music.)",
+      "title": "Beautiful Savior - TTBB, correct notes but solo words differ from ours here",
       "url": "https://www.youtube.com/watch?v=VIOU1MMQNAo",
       "thumb": "https://img.youtube.com/vi/VIOU1MMQNAo/maxresdefault.jpg",
       "due": "2/23/25"
+    },
+    {
+      "id": 20,
+      "title": "Put a Little Love in Your Heart (with Love Train) - TTBB",
+      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=11501484",
+      "thumb": "https://www.jwpepper.com/covers/1/11501484.jpg",
+      "due": "2/23/25"
+    },
+    {
+      "id": 21,
+      "title": "Spirit of God, Descend Upon My Heart",
+      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=10665547",
+      "thumb": "https://www.jwpepper.com/covers/1/10665547.jpg",
+      "due": "2/23/25"
+    },
+    {
+      "id": 22,
+      "title": " When the Poor Ones (morning anthem)",
+      "url": "https://www.jwpepper.com/sheet-music/media-player.jsp?&type=audio&productID=10082895",
+      "thumb": "https://www.jwpepper.com/covers/1/10082895.jpg",
+      "due": "2/23/25"
+    },
+    {
+      "id": 23,
+      "title": "World Without Walls - Music by Newlove Annan (pictured)",
+      "url": "https://drive.google.com/file/d/17MALBMKodnYP2EpNFn4eWOMoyCncRVl1/view?usp=drive_link",
+      "thumb": "https://hymnary.org/files/hymnary/person/Annan_Newlove.jpg",
+      "due": "2/16/25"
     }
   ]
 }

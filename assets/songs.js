@@ -1,6 +1,15 @@
 document.addEventListener("alpine:init", async (e) => {
   // Add v timestamp, combined with html's Cache-Control, to always get latest.
-  const res = await fetch("./assets/data/songs.json?v=" + new Date().getTime());
+
+  // Chancel Choir
+  let res;
+  if (location.pathname.includes('gospel')) {
+    // Gospel Choir
+    res = await fetch("../assets/data/songs-gospel.json?v=" + new Date().getTime());
+  } else {
+    res = await fetch("./assets/data/songs.json?v=" + new Date().getTime());
+  }
+
   let songs = (await res.json()).songs.sort((a, b) => {
     // Turn due into dates.
     const aDue = new Date(a.due);
