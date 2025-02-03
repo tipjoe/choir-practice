@@ -18,12 +18,24 @@ th {
 }
 
 td {
-  /* Needed for flex to work within table cell. */
-  height: 150px;
+  padding: 24px 6px;
 }
 
+td {
+  /* Needed for flex to work within table cell. */
+  min-height: 150px;
+}
+
+/* Mobile */
 img.thumb {
-  width: 125px;
+  width: 75px;
+}
+
+/* Tablet + desktop */
+@media (min-width: 500px) {
+  img.thumb {
+    width: 125px;
+  }
 }
 
 .center {
@@ -139,4 +151,12 @@ ul.bigger {
   display: none;
   padding: 12px 24px;
   background-color: rgb(190, 225, 239);
+}
+
+.words:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

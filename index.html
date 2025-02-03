@@ -28,8 +28,8 @@
       </span>
       <table id="table-song">
         <thead>
-          <th colspan="2" style="width: 65%">Listen Links</th>
-          <th style="width: 35%">Performing</th>
+          <th colspan="2" style="width: 75%">Listen Links</th>
+          <th style="width: 25%">Performing</th>
         </thead>
         <tbody x-data>
           <template x-for="song in Alpine.store('choir')?.getSongs()">
@@ -42,8 +42,14 @@
               <td class="song-link-track">
                 <a class="anchor-link" x-bind:href="'#song' + song.id">🔗</a>
                 <a x-bind:href="song.url" target="_blank">
-                  <span x-text="song.title"></span>
+                  <div x-text="song.title"></div>
                 </a>
+                <template x-if="song.words">
+                  <div style="margin-top: 14px; font-size: .8rem; color: gray;" x-data="{ wordsOpen: false }">
+                    <span x-bind:id="'show-words-' + song.id" x-on:click="wordsOpen = !wordsOpen" class="words">Show words ▶</span>
+                    <pre x-text="song.words" :class="wordsOpen ? '' : 'hidden'" ></pre>
+                  </div>
+                </template>
               </td>
               <td
                 :class="Alpine.store('choir').daysFromNowClass(song.id)"
