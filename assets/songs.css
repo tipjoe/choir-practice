@@ -153,6 +153,10 @@ ul.bigger {
   background-color: rgb(190, 225, 239);
 }
 
+.words {
+  white-space: break-spaces;
+}
+
 .words:hover {
   cursor: pointer;
 }

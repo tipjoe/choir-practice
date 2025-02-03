@@ -28,8 +28,8 @@
       </span>
       <table id="table-song">
         <thead>
-          <th colspan="2" style="width: 75%">Listen Links</th>
-          <th style="width: 25%">Performing</th>
+          <th colspan="2" style="width: 85%">Listen Links</th>
+          <th style="width: 15%">Performing</th>
         </thead>
         <tbody x-data>
           <template x-for="song in Alpine.store('choir')?.getSongs()">
@@ -47,7 +47,7 @@
                 <template x-if="song.words">
                   <div style="margin-top: 14px; font-size: .8rem; color: gray;" x-data="{ wordsOpen: false }">
                     <span x-bind:id="'show-words-' + song.id" x-on:click="wordsOpen = !wordsOpen" class="words">Show words ▶</span>
-                    <pre x-text="song.words" :class="wordsOpen ? '' : 'hidden'" ></pre>
+                    <pre x-text="song.words" :class="wordsOpen ? '' : 'hidden'" class="words"></pre>
                   </div>
                 </template>
               </td>
