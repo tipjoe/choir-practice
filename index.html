@@ -14,19 +14,28 @@
   </head>
   <body>
     <h1 class="center">Choir Song Practice</h1>
-    Click to listen. Songs ordered 1) by schedule, 2) then alphabetical if
-    not yet scheduled.
+    <p>
+      Click a title to listen to practice tracks. Click <i>Show words</i>
+      (parts may vary in sheet music).
+    </p>
+    <p>
+      <a href="https://www.hilltopumchurch.org/livestream" target="_blank">Listen live</a>
+      each Sunday morning at 10:30 on the indicated dates.
+      Watch <a href="#past-songs">past songs</a> here using
+      <img src="assets/images/play-icon.png" style="width: 15px;"/> links.
 
-    <div style="margin-top: 36px">
+    </p>
+
+    <div id="upcoming-songs" style="margin-top: 36px">
       <h3>Upcoming Songs</h3>
       <span
         x-data
         x-show="Alpine.store('choir')?.getPastSongs().length"
         style="color: gray; font-size: 0.8em"
       >
-        See past songs we've performed below. <br /><br />
+        See <a href="#past-songs" style="text-decoration: underline;">past songs</a> we've performed below. <br /><br />
       </span>
-      <table id="table-song">
+      <table id="table-song-current">
         <thead>
           <th colspan="2" style="width: 85%">Listen Links</th>
           <th style="width: 15%">Performing</th>
@@ -56,10 +65,13 @@
                 style="text-align: center"
               >
                 <div>
+                  <div x-show="new Date(song.due).getTime() === new Date('2/1/2099').getTime()">
+                    <span style="color: #bab8b8;">Used during weekly rehearsals</span>
+                  </div>
                   <div x-show="new Date(song.due).getTime() === new Date('1/1/2099').getTime()">
                     Not yet scheduled
                   </div>
-                  <div x-show="new Date(song.due).getTime() !== new Date('1/1/2099').getTime()">
+                  <div x-show="new Date(song.due).getTime() !== new Date('1/1/2099').getTime() && new Date(song.due).getTime() !== new Date('2/1/2099').getTime()">
                     <span x-text="formatDate(new Date(song.due))"></span>
                     <br /><br />
                     <span style="font-size: .8em" x-text="'(in ' + daysFromNow(new Date(song.due)) +  ' days)'"></span>
@@ -73,17 +85,22 @@
     </div>
 
     <div
+      id="past-songs"
       x-data
       x-show="Alpine.store('choir')?.getPastSongs().length"
       style="margin-top: 96px"
     >
-      <h3 id="past-songs">
+      <h3>
         Past Songs (<span
           x-text="Alpine.store('choir')?.getPastSongs().length"
         ></span
         >)
       </h3>
-      <table id="table-song">
+      <span style="color: gray; font-size: 0.8em;">
+        Back to <a href="#upcoming-songs" style="text-decoration: underline;">upcoming songs</a>.
+      </span>
+      <br /><br />
+      <table id="table-song-past">
         <thead>
           <th colspan="2" style="width: 65%">Listen Links</th>
           <th style="width: 35%">Performed</th>
@@ -101,6 +118,18 @@
                 <a x-bind:href="song.url" target="_blank">
                   <span x-text="song.title"></span>
                 </a>
+                <template x-if="song.words">
+                  <div style="margin-top: 14px; font-size: .8rem; color: gray;" x-data="{ wordsOpen: false }">
+                    <span x-bind:id="'show-words-' + song.id" x-on:click="wordsOpen = !wordsOpen" class="words">Show words ▶</span>
+                    <pre x-text="song.words" :class="wordsOpen ? '' : 'hidden'" class="words"></pre>
+                  </div>
+                </template>
+                <template x-if="song.performLink">
+                  <div style="margin-top: 24px;">
+                    <a x-bind:href="song.performLink" target="_blank"><img src="assets/images/play-icon.png" style="width: 15px;"/> Watch</a>
+                    <span style="font-size: .8rem; color: gray;">choir performance</span>
+                  </div>
+                </template>
               </td>
               <td style="text-align: center">
                 <span x-text="formatDate(new Date(song.due))"></span>

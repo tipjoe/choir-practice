@@ -82,7 +82,17 @@ document.addEventListener("alpine:init", async (e) => {
         if (due < now) {
           return song;
         }
-      });
+      }).sort((a, b) => {
+        // Sort descending to show most recent first.
+        // Turn due into dates.
+        const aDue = new Date(a.due);
+        const bDue = new Date(b.due);
+        // If due date timestamps are the same, sort by title.
+        if (aDue.getTime() === bDue.getTime()) {
+          return a.title.localeCompare(b.title);
+        }
+        return bDue - aDue;
+      })
     },
 
     // Provide the daysFromNow class for styling. If "gotIt" is true, override.
@@ -99,7 +109,7 @@ document.addEventListener("alpine:init", async (e) => {
         return "song-overdue";
       } else if (days > 999) {
         return "song-unscheduled";
-      } else if (days > 20) {
+      } else if (days > 14) {
         return "song-have-time";
       } else {
         return "song-soon";
