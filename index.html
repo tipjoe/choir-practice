@@ -15,15 +15,13 @@
   <body>
     <h1 class="center">Choir Song Practice</h1>
     <p>
-      Click a title to listen to practice tracks. Click <i>Show words</i>
+      Click a title to listen to practice tracks. Click <i>Show/hide words</i>
       (parts may vary in sheet music).
     </p>
-    <p>
-      <a href="https://www.hilltopumchurch.org/livestream" target="_blank">Listen live</a>
-      each Sunday morning at 10:30 on the indicated dates.
-      Watch <a href="#past-songs">past songs</a> here using
-      <img src="assets/images/play-icon.png" style="width: 15px;"/> links.
-
+    <p style="background-color: yellow; padding: 12px;">
+      Notice: As of 2/22/25, JW Pepper updated their site and these listen links
+      only work <i>on your phone</i> with Firefox or Edge mobile browser apps (free).
+      When they fix this, I'll update here.
     </p>
 
     <div id="upcoming-songs" style="margin-top: 36px">
@@ -55,7 +53,7 @@
                 </a>
                 <template x-if="song.words">
                   <div style="margin-top: 14px; font-size: .8rem; color: gray;" x-data="{ wordsOpen: false }">
-                    <span x-bind:id="'show-words-' + song.id" x-on:click="wordsOpen = !wordsOpen" class="words">Show words ▶</span>
+                    <span x-bind:id="'show-words-' + song.id" x-on:click="wordsOpen = !wordsOpen" class="words">Show/hide words</span>
                     <pre x-text="song.words" :class="wordsOpen ? '' : 'hidden'" class="words"></pre>
                   </div>
                 </template>
@@ -120,14 +118,13 @@
                 </a>
                 <template x-if="song.words">
                   <div style="margin-top: 14px; font-size: .8rem; color: gray;" x-data="{ wordsOpen: false }">
-                    <span x-bind:id="'show-words-' + song.id" x-on:click="wordsOpen = !wordsOpen" class="words">Show words ▶</span>
+                    <span x-bind:id="'show-words-' + song.id" x-on:click="wordsOpen = !wordsOpen" class="words">Show/hide words</span>
                     <pre x-text="song.words" :class="wordsOpen ? '' : 'hidden'" class="words"></pre>
                   </div>
                 </template>
                 <template x-if="song.performLink">
                   <div style="margin-top: 24px;">
-                    <a x-bind:href="song.performLink" target="_blank"><img src="assets/images/play-icon.png" style="width: 15px;"/> Watch</a>
-                    <span style="font-size: .8rem; color: gray;">choir performance</span>
+                    <a x-bind:href="song.performLink" target="_blank"><img src="assets/images/play-icon.png" style="width: 15px;"/> Live Performance</a>
                   </div>
                 </template>
               </td>
