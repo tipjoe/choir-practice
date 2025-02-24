@@ -69,7 +69,7 @@
                     <span style="color: #bab8b8;">Used during weekly rehearsals</span>
                   </div>
                   <div x-show="new Date(song.due).getTime() === new Date('1/1/2099').getTime()">
-                    Not yet scheduled
+                    <span style="color: #bab8b8;">Not yet scheduled</span>
                   </div>
                   <div x-show="new Date(song.due).getTime() !== new Date('1/1/2099').getTime() && new Date(song.due).getTime() !== new Date('2/1/2099').getTime()">
                     <span x-text="formatDate(new Date(song.due))"></span>

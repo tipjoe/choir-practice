@@ -65,9 +65,10 @@ document.addEventListener("alpine:init", async (e) => {
     songs,
 
     // Get current songs.
+    // Add one day of milliseconds so the song doesn't "expire" till end of day.
     getSongs() {
       return this.songs.filter((song) => {
-        const due = new Date(song.due).getTime();
+        const due = new Date(song.due).getTime() + 86400000;
         const now = new Date().getTime();
         if (due >= now) {
           return song;
@@ -75,10 +76,15 @@ document.addEventListener("alpine:init", async (e) => {
       });
     },
     // Get past songs.
+    // Add one day of milliseconds so the song doesn't "expire" till end of day.
     getPastSongs() {
       return this.songs.filter((song) => {
-        const due = new Date(song.due).getTime();
+        const due = new Date(song.due).getTime() + 86400000;
         const now = new Date().getTime();
+        if (song.id == 22) {
+          console.log('due, now', due - now);
+
+        }
         if (due < now) {
           return song;
         }
